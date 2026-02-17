@@ -1,7 +1,6 @@
 namespace ConsoleApp13;
-
 public interface IFoodService
 {
-    public DateTime WhenWillBePrapered(TimeSpan timeSpan);
-    public int MoreThanNCalories(int nCalories);
+    public DateTime WhenWillPrepared(Food food); 
+    public int GetCountByCalories(Food[] foods, double n); 
 }

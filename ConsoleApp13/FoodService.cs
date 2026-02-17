@@ -1,25 +1,19 @@
 namespace ConsoleApp13;
-
-public class FoodService : Food, IFoodService
+public class FoodService : IFoodService
 {
-    
-    
-    
-    public DateTime WhenWillBePrapered(TimeSpan timeSpan)
+    public DateTime WhenWillPrepared(Food food)
     {
-        DateTime now = DateTime.Now + timeSpan;
-        return now;
+        return food.RelaseDate + food.PreparationTime;
     }
 
-    public int MoreThanNCalories(int nCalories)
+    public int GetCountByCalories(Food[] foods, double n)
     {
-        
-        
-        return 0;
+        int count = 0;
+        foreach (var food in foods)
+        {
+            if (food.Calories > n) count++;
+        }
+        return count;
     }
 
-    public override void CalcPrice()
-    {
-        throw new NotImplementedException();
-    }
 }

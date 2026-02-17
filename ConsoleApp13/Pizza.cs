@@ -5,12 +5,13 @@ public class Pizza : Food
     public double Radius;
     public bool IsSpicy;
    
-    public override void CalcPrice()
+    public override double CalcPrice()
     {
         double area = Radius * Radius * Math.PI;
         Price = area * 0.1;
         if (IsSpicy)
             Price += 1.15;
+        return Price;
         Console.WriteLine("the price of the pizza is " + Price.ToString("F2") + " AZN");
     }
     

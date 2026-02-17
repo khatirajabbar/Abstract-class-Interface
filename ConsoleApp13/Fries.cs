@@ -12,17 +12,12 @@ public class Fries : Food
         IsSalty = isSalty;
     }
 
-    public override void CalcPrice()
+    public override double CalcPrice()
     {
-        Price = Weight * 1;
-        if (IsSalty)
-        {
-            Price += 0.8;
-        }
-
-        Console.WriteLine("the price of the fries is " + Price.ToString("F2") + " AZN");
+        double price = (Weight / 1000) * 1; 
+        if (IsSalty) price += 0.8;
+        return price;
     }
-
     public override string ToString()
     {
         return base.ToString() + $" Price {Price.ToString("F2")} Weight: {Weight} Is Salty: {IsSalty} ";

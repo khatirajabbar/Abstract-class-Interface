@@ -9,15 +9,13 @@ public abstract class Food
 
     public DateTime RelaseDate
     {
-        get { return _releaseDate; }
-        set
-        {
-            if (!(value.Date < DateTime.Now.Date))
-                _releaseDate = value;
-            return;
+        get => _releaseDate;
+        set {
+            if (value <= DateTime.Now) _releaseDate = value;
         }
-
     }
+    
+    public abstract double CalcPrice();
 
     public TimeSpan PreparationTime { get; set; }
     private double _calories;
@@ -32,9 +30,7 @@ public abstract class Food
             return;
         }
     }
-
-    public abstract void CalcPrice();
-
+    
     public Food()
     {
         
